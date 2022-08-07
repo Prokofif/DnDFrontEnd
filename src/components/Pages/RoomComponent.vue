@@ -1,7 +1,6 @@
 <template>
   <div class="roomContainer">
-    <h1>Your choise doesn't matter, you dump bitch. <br> So room 1221 it is.  {{roomNumber}}</h1>
-    <h3>You came to die, don't expect much. </h3>
+    <h1>Your choise doesn't matter, you dumb bitch. <br> So room 1221 it is.  {{roomNumber}}</h1>
     <PointsButtonSet/>
     <Skills/>
   </div>
