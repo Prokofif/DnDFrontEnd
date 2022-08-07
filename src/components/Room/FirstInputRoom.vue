@@ -3,11 +3,11 @@
     <input
       type="text"
       v-model.number="myInput"
-      placeholder="Enter the room and your life will get better, you dump bitch"
+      placeholder="Enter a room number and your life will get better."
     />
-    <p>{{ myInput }}</p>
     <router-link to="/room">
-      <button>Go</button>
+    <br>
+      <button v-if="myInput">Go</button>
     </router-link>
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
     };
   },
 
+  //doesnt work
   handleClick() {
     let data = {
       id: 25,
@@ -38,7 +39,7 @@ export default {
 input {
   width: 40%;
   padding: 40px;
-  margin-top: 10px;
+  margin: 20px;
   border: none;
   font-size: 1.2em;
 }
