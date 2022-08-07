@@ -1,4 +1,7 @@
+
 <script>
+// !!!!!!! this is a test component that is never used
+
 export default {  
   emits: ['enlarge']
 };
