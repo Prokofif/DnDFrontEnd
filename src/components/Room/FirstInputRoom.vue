@@ -6,31 +6,43 @@
       placeholder="Enter a room number and your life will get better."
     />
     <router-link to="/room">
-    <br>
-      <button v-if="myInput">Go</button>
+      <br />
+      <button
+        v-if="myInput"
+        @click="setRoomNumber"
+        @keypress="isNumber($event)"
+      >
+        Go
+      </button>
     </router-link>
   </div>
 </template>
 
 <script>
 export default {
+  name: "FirstInputRoom",
   data() {
     return {
       myInput: "",
     };
   },
-
-  //doesnt work
-  handleClick() {
-    let data = {
-      id: 25,
-      description: "tftf",
-    };
-
-    console.log(data);
-    this.$router.push("/room"); //doesn't work
-
-    // TODO: add myInput to this.router and return route in another component
+  methods: {
+    setRoomNumber() {
+      this.$store.state.room = this.myInput;
+    },
+    isNumber: function (evt) {
+      evt = evt ? evt : window.event;
+      var charCode = evt.which ? evt.which : evt.keyCode;
+      if (
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57) &&
+        charCode !== 46
+      ) {
+        evt.preventDefault();
+      } else {
+        return true;
+      }
+    },
   },
 };
 </script>
