@@ -1,12 +1,12 @@
 
 <script>
-import FirstInputRoom from "../../components/Room/FirstInputRoom.vue";
-import WelcomeMessage from "../../components/Room/WelcomeMessage.vue";
+import WelcomeMessage from "../WelcomeMessage.vue";
+import RoleSelection from '../RoleSelection.vue';
 
 export default {
   components: {
     WelcomeMessage,
-    FirstInputRoom,
+    RoleSelection,
   },
 };
 </script>
@@ -15,6 +15,7 @@ export default {
   <div>
     <img alt="Vue logo" src="../../assets/logo.png" />
     <WelcomeMessage msg="Welcome to Dungeon and Dragons" />
-    <FirstInputRoom />
+    <role-selection></role-selection>
+    
   </div>
 </template>
