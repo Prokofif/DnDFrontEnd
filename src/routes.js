@@ -8,8 +8,8 @@ import MasterPasswordPage from "./components/Pages/MasterPasswordPage.vue";
 export default [
     { path: '/', component: WelcomePage },
     { path: '/roomPlayer', component: FirstInputRoom },
-    { path: '/roomPlayerProfile', component: UserProfilePage },
+    { path: '/playerProfile/:firstName', component: UserProfilePage },
 
-    { path: '/roomGameMasterPassword', component: MasterPasswordPage },
-    { path: '/roomGameMaster', component: MasterDashboard }
+    { path: '/gameMasterPassword', component: MasterPasswordPage },
+    { path: '/gameMasterProfile', component: MasterDashboard }
 ]

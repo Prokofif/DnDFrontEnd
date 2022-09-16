@@ -1,39 +1,34 @@
 <template>
-  <div class="roomContainer">
-    <h1>{{ roomNumber }}</h1>
-    <PointsButtonSet />
+  <div class="playerContainer">
+    <h1>{{ userName }}</h1>
+    <UserPoints />
     <Skills />
   </div>
 </template>
 
 
 <script>
-import PointsButtonSet from "../HeroeSkills/PointsButtonSet.vue";
+import UserPoints from "../HeroeSkills/UserPoints.vue";
 import Skills from "../HeroeSkills/Skills.vue";
 
 export default {
   name: "UserProfilePage",
   components: {
-    PointsButtonSet,
+    UserPoints,
     Skills,
-  },
-  data() {
-    return {
-      userName: {},
-    };
   },
 
   // //pass a value thruogh the Store (Vuex)
   computed: {
-    roomNumber() {
-      return this.$store.state.room;
+    userName() {
+      return this.$store.state.firstName;
     },
   },
 };
 </script>
 
 <style scoped>
-.roomContainer {
+.playerContainer {
   box-shadow: 0px 0px 40px lightgray;
 }
 

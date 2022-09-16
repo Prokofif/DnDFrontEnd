@@ -1,8 +1,8 @@
 import axios from "axios"
 
 
-export async function getUserIdService(data) {
-  const response = await axios.get('http://localhost:3000/getUserId', data);//todo. id is not created yet.||| add data?
+export async function getUserByNameService(id) {//cannot pass param
+  const response = await axios.get(`http://localhost:3000/getUserByName/${id}`);
   return response.data;
 }
 export async function getAllUsersService() {
@@ -16,14 +16,20 @@ export async function deleteAllUsersService() {
 }
 
 export async function createUserService(data) {
-  const response = await axios.post(`http://localhost:3000/user/createUser`,  data);
+  const response = await axios.post(`http://localhost:3000/createUser`, data);
+  console.log('response.data=============')
+  console.log(response.data)
   return response.data;
 }
 
-export default {
-  async getUser() {
-    let res = await axios.get("http://localhost:3000/user");
-    return res.data;
-  },
-  
+export async function updateUserService(data) {
+  const response = await axios.put("http://localhost:3000/updateUser", data);
+  return response.data;
 }
+
+// export default {
+//   async getUser() {
+//     let res = await axios.get("http://localhost:3000/user");
+//     return res.data;
+//   },
+// }

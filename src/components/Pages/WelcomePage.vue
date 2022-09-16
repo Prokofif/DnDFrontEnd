@@ -8,7 +8,10 @@ export default {
     WelcomeMessage,
     RoleSelection,
   },
+
 };
+
+
 </script>
 
 <template>

@@ -21,7 +21,7 @@ export default {
     passwordCheck() {
       if (this.passwordInput == this.password) {
         this.access = true;
-        this.$router.push("/roomGameMaster");
+        this.$router.push("/gameMasterProfile");
       } else this.access = false;
       console.log(this.access);
       return this.access;

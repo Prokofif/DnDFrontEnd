@@ -1,6 +1,6 @@
 <template>
     <div class="display-board">
-        <h4>Users Created</h4>
+        <h2>Users Created</h2>
         <div class="number">
         {{numberOfUsers}}
         </div>

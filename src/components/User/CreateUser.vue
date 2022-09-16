@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container text-center">
     <div class="row">
         <div class="col-md-7 mrgnbtm">
         <h2>Create User</h2>
@@ -21,7 +21,7 @@
             </form>
         </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>

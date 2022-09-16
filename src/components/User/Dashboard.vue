@@ -27,8 +27,7 @@ import CreateUser from "./CreateUser.vue";
 import DisplayBoard from "./DisplayBoard.vue";
 import Users from "./Users.vue";
 import {
-  getAllUsersService,
-  getUserIdService,
+  getAllUsersService, 
   createUserService,
   deleteAllUsersService,
 } from "@/services/EventService";
@@ -46,13 +45,6 @@ export default {
     };
   },
   methods: {
-    createdUser(user) {
-      getUserIdService(user).then((response) => {
-        console.log("USER ID response");
-        console.log(response);
-        // this.$router.push('/userid/'+response)
-      });
-    },
     getAllUsers() {
       getAllUsersService().then((response) => {
         console.log(response);
@@ -62,10 +54,13 @@ export default {
     },
     userCreate(data) {
       console.log("data:::", data);
+
       createUserService(data).then((response) => {
-        // console.log(response);
-        this.createdUser(response);
-        this.getAllUsers();
+        if (response.acknowledged) {
+          this.getAllUsers();
+        } else {
+          this.$alert(`Username ${data.firstName} is already taken!`);
+        }
       });
     },
 

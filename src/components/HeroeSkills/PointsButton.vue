@@ -1,8 +1,9 @@
 <template>
   <div>
-    <button class="button button_plus" @click="pointsValue++">+</button>
-    <p>{{ pointsValue }}{{ pointsName }}</p>
-    <button class="button button_minus" @click="pointsValue--">-</button>
+    <button class="button button_plus" @click="btnPlus">+</button>
+    <!-- <p>{{ pointsValue }}{{ pointsName }}</p> -->
+    <!-- <p>{{firstName}}</p> -->
+    <button class="button button_minus" @click="btnMinus">-</button>
   </div>
 </template>
 
@@ -10,12 +11,35 @@
 export default {
   name: "PointsButton",
   props: {
+    firstName:String,
     pointsName: String,
+    // pointsValue: Number,
   },
   data() {
     return {
-      pointsValue: 0,
+      pointsValue: 0,              //todo make it
     };
+  },
+
+  methods: {
+    btnPlus() {
+      // this.pointsValue++;
+      this.pointsU();
+    },
+
+    btnMinus() {
+      // this.pointsValue--;
+      this.pointsU();
+    },
+
+    pointsU() {
+      
+      const payload = {
+        firstName: 'Daniil',      //todo wtf ? should be easy
+        [this.pointsName]: this.pointsValue
+      };
+      this.$emit("pointsU", payload);
+    },
   },
 };
 </script>
@@ -34,9 +58,9 @@ button {
   position: relative;
   border: none;
   font-size: 28px;
-  color: #EEEEEE;
+  color: #eeeeee;
   padding: 20px;
-  width: 200px;
+  width: 60px;
   text-align: center;
   transition-duration: 0.4s;
   text-decoration: none;
