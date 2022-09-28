@@ -6,11 +6,15 @@
     <router-link to="/roomPlayer">
       <button class="player-btn btn btn-success col-md-2">Player</button>
     </router-link>
+
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+};
+
 </script>
 
 <style>

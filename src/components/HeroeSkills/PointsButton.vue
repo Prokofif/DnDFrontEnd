@@ -1,9 +1,22 @@
 <template>
   <div>
-    <button class="button button_plus" @click="btnPlus">+</button>
-    <!-- <p>{{ pointsValue }}{{ pointsName }}</p> -->
-    <!-- <p>{{firstName}}</p> -->
-    <button class="button button_minus" @click="btnMinus">-</button>
+    <button class="button button_plus" @click="pointsU">ok</button>
+
+    <circle-slider
+      v-model="pointsValue"
+      :side="150"
+      :min="0"
+      :max="20"
+      :stepSize="1"
+      :circleWidthRel="20"
+      :progressWidthRel="10"
+      :knobRadius="10"
+      @touchmove="$refs.input.blur()"
+    ></circle-slider>
+    <!-- @touchmove="$refs.input.blur()" - hide keyboard on touchmove at mobile devices -->
+
+    <input ref="input" type="number" v-model.number="pointsValue" />
+    <!-- <button class="button button_minus" @click="btnMinus">-</button> -->
   </div>
 </template>
 
@@ -11,32 +24,36 @@
 export default {
   name: "PointsButton",
   props: {
-    firstName:String,
+    user:Object,
     pointsName: String,
-    // pointsValue: Number,
   },
+  
   data() {
     return {
-      pointsValue: 0,              //todo make it
+      pointsValue: 0
     };
   },
 
+  mounted(){
+    console.log('USER IS:', this.user)
+    // this.pointsValue = this.user.healthPoints
+  },
   methods: {
-    btnPlus() {
-      // this.pointsValue++;
-      this.pointsU();
-    },
+    // btnPlus() {
+    //   // this.pointsValue++;
+    //   console.log("---------------------------------------reached")
+    //   this.pointsU();
+    // },
 
-    btnMinus() {
-      // this.pointsValue--;
-      this.pointsU();
-    },
+    // btnMinus() {
+    //   // this.pointsValue--;
+    //   this.pointsU();
+    // },
 
     pointsU() {
-      
       const payload = {
-        firstName: 'Daniil',      //todo wtf ? should be easy
-        [this.pointsName]: this.pointsValue
+        firstName: this.user.firstName,
+        [this.pointsName]: this.pointsValue,
       };
       this.$emit("pointsU", payload);
     },
@@ -46,18 +63,15 @@ export default {
 
 <style scoped>
 button {
-  width: 50px;
+  width: auto;
   height: auto;
   color: aliceblue;
   border-radius: 10px;
-  font-size: 1.2em;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .button {
   position: relative;
   border: none;
-  font-size: 28px;
   color: #eeeeee;
   padding: 20px;
   width: 60px;

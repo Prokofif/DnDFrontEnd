@@ -33,8 +33,7 @@ export default {
     login() {
       console.log("here we go login for:: ", this.firstName);
       
-      getUserByNameService(this.firstName).then((response) => {
-        console.log("response AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+      getUserByNameService(this.firstName).then((response) => { 
         console.log(response);
         if (response.firstName == this.firstName) 
         {

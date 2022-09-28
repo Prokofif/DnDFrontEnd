@@ -17,20 +17,20 @@
           <td>{{ item.firstName }}</td>
           <td>{{ item.nickName }}</td>
           <td>
-            {{ item.healthPoints }}
+            Database: {{ item.healthPoints }}
             <div class="health PointsBlock">
               <PointsButton
                 @pointsU="pointsUpdate($event)"
-                pointsName="healthPoints" firstName= ''
+                pointsName="healthPoints" :user="item"
               />
             </div>
           </td>
           <td>
-            {{ item.armorPoints }}
+            Database: {{ item.armorPoints }}
             <div class="armor PointsBlock">
               <PointsButton
                 @pointsU="pointsUpdate($event)"
-                pointsName="armorPoints"
+                pointsName="armorPoints" :user="item"
               />
             </div>
           </td>
