@@ -1,34 +1,34 @@
 <template>
-  <div class="roomContainer">
-    <h1>Room #{{ roomNumber }}</h1>
-    <PointsButtonSet />
+  <div class="playerContainer">
+    <h1>{{ userName }}</h1>
+    <UserPoints />
     <Skills />
   </div>
 </template>
 
 
 <script>
-import PointsButtonSet from "../HeroeSkills/PointsButtonSet.vue";
+import UserPoints from "../HeroeSkills/UserPoints.vue";
 import Skills from "../HeroeSkills/Skills.vue";
 
 export default {
-  name: "RoomComponent",
+  name: "UserProfilePage",
   components: {
-    PointsButtonSet,
+    UserPoints,
     Skills,
   },
-  
 
-  computed:{
-    roomNumber(){
-      return this.$store.state.room
-    }
-  }
+  // //pass a value thruogh the Store (Vuex)
+  computed: {
+    userName() {
+      return this.$store.state.firstName;
+    },
+  },
 };
 </script>
 
 <style scoped>
-.roomContainer {
+.playerContainer {
   box-shadow: 0px 0px 40px lightgray;
 }
 
@@ -39,8 +39,7 @@ h1 {
 h3 {
   margin-bottom: 60px;
 }
-/* not reached */
-/* @import url("https://fonts.googleapis.com/css?family-Montserrat:400,700"); */
+
 body {
   background-color: #eeeeee;
   display: grid;

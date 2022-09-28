@@ -93,13 +93,6 @@ input {
   color: rgb(255, 255, 255);
 }
 
-.alert {
-  background: #fdf2ce;
-  font-weight: bold;
-  display: inline-block;
-  padding: 5px;
-  margin-top: -20px;
-}
 .animation-enter {
   animation: bounce-in 0.5s;
 }
