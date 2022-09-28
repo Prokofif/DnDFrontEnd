@@ -73,6 +73,8 @@ export default {
   },
   mounted() {
     this.getAllUsers();
+    
+    setInterval(this.getAllUsers, 3000);
   },
 };
 </script>
