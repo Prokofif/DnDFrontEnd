@@ -24,32 +24,25 @@
 export default {
   name: "PointsButton",
   props: {
-    user:Object,
+    user: Object,
     pointsName: String,
   },
-  
+
   data() {
     return {
-      pointsValue: 0
+      pointsValue: 0,
     };
   },
-
-  mounted(){
-    console.log('USER IS:', this.user)
-    // this.pointsValue = this.user.healthPoints
+  mounted () {
+    if (this.pointsName == 'healthPoints'){
+      this.pointsValue = this.user.healthPoints;
+    } else if (this.pointsName == 'armorPoints'){
+      this.pointsValue = this.user.armorPoints;
+    }
+    
   },
+
   methods: {
-    // btnPlus() {
-    //   // this.pointsValue++;
-    //   console.log("---------------------------------------reached")
-    //   this.pointsU();
-    // },
-
-    // btnMinus() {
-    //   // this.pointsValue--;
-    //   this.pointsU();
-    // },
-
     pointsU() {
       const payload = {
         firstName: this.user.firstName,

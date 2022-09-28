@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const backend = 'https://dnd-backendd.herokuapp.com'
-// const backendLocal = ' http://localhost:3000'
+// const backend = 'https://dnd-backendd.herokuapp.com'
+const backend = ' http://localhost:3000'
 
 export async function getUserByNameService(id) {//cannot pass param
   const response = await axios.get(`${backend}/getUserByName/${id}`);
