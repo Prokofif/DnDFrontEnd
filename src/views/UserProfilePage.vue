@@ -8,8 +8,8 @@
 
 
 <script>
-import UserPoints from "../HeroeSkills/UserPoints.vue";
-import Skills from "../HeroeSkills/Skills.vue";
+import UserPoints from "../components/HeroeSkills/UserPoints.vue";
+import Skills from "../components/HeroeSkills/Skills.vue";
 
 export default {
   name: "UserProfilePage",
@@ -17,11 +17,11 @@ export default {
     UserPoints,
     Skills,
   },
+ 
 
-  // //pass a value thruogh the Store (Vuex)
-  computed: {
+computed: {
     userName() {
-      return this.$store.state.firstName;
+      return localStorage.firstName;
     },
   },
 };
@@ -45,10 +45,5 @@ body {
   display: grid;
   grid-template-rows: auto;
   justify-items: center;
-}
-body,
-html {
-  margin: 0;
-  height: 100%;
 }
 </style>

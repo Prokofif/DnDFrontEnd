@@ -31,14 +31,16 @@ export default {
 
   methods: {
     login() {
-      console.log("here we go login for:: ", this.firstName);
       
       getUserByNameService(this.firstName).then((response) => { 
         console.log(response);
         if (response.firstName == this.firstName) 
         {
-            //here user name is stored and used in playerProfile page to identify user
-          this.$store.state.firstName = this.firstName; 
+          //here user name is set to local storage. it is displayed in playerProfile page 
+          localStorage.setItem('firstName', this.firstName);
+
+          //TODO: store is not used. 
+          this.$store.state.firstName = localStorage.firstName; 
           this.$router.push(`/playerProfile/${this.firstName}`);
         } else {
           this.$alert(`Username ${this.firstName} does not exists.`);

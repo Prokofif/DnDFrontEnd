@@ -6,7 +6,7 @@
 
 <script>
 
-import Dashboard from "../User/Dashboard.vue";
+import Dashboard from "../components/User/Dashboard.vue";
 
 export default {
   components: {
