@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LoginUser from "../User/LoginUser.vue";
+import LoginUser from "../components/User/LoginUser.vue";
 
 export default {
   name: "FirstInputRoom",

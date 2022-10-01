@@ -4,34 +4,49 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>User Id</th>
           <th>Firstname</th>
           <th>Nickname</th>
-          <th>Health</th>
-          <th>Armor</th>
+          <th>Stats</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="item in users" :key="item._id">
-          <td>{{ item._id }}</td>
           <td>{{ item.firstName }}</td>
           <td>{{ item.nickName }}</td>
+
           <td>
-            Database: {{ item.healthPoints }}
-            <div class="health PointsBlock">
-              <PointsButton
-                @pointsU="pointsUpdate($event)"
-                pointsName="healthPoints" :user="item"
-              />
+            <div class="stats">
+              Database: {{ item.healthPoints }}
+              <div class="health PointsBlock">
+                <img
+                  alt="HP"
+                  id="PixelHeart"
+                  src="../../../src/assets/Pixel-Heart.svg"
+                  class="hp points"
+                />
+                <PointsButton
+                  @pointsU="pointsUpdate($event)"
+                  pointsName="healthPoints"
+                  :user="item"
+                />
+              </div>
             </div>
-          </td>
-          <td>
-            Database: {{ item.armorPoints }}
-            <div class="armor PointsBlock">
-              <PointsButton
-                @pointsU="pointsUpdate($event)"
-                pointsName="armorPoints" :user="item"
-              />
+
+            <div class="stats">
+              Database: {{ item.armorPoints }}
+              <div class="armor PointsBlock">
+                <img
+                  alt="AP"
+                  id="PixelShield"
+                  src="../../../src/assets/Pixel-Shield.svg"
+                  class="ap points"
+                />
+                <PointsButton
+                  @pointsU="pointsUpdate($event)"
+                  pointsName="armorPoints"
+                  :user="item"
+                />
+              </div>
             </div>
           </td>
         </tr>
@@ -58,3 +73,29 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+/* TODO improve code. not responsive */
+.stats:first-child {
+  padding: 20px;
+  float: left;
+}
+.stats:last-child {
+  padding: 20px;
+  float: right;
+}
+
+.hp,
+.ap {
+  position: absolute;
+}
+.hp {
+  width: 4rem;
+  margin: 45px -34px;
+}
+.ap {
+  width: 5rem;
+  margin: 35px -41px;
+}
+</style>

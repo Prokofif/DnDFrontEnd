@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import MasterPassword from '../MasterPassword.vue'
+import MasterPassword from '../components/MasterPassword.vue'
 export default {
   components: { MasterPassword },
 

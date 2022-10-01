@@ -1,7 +1,7 @@
 
 <script>
-import WelcomeMessage from "../WelcomeMessage.vue";
-import RoleSelection from '../RoleSelection.vue';
+import WelcomeMessage from "../components/WelcomeMessage.vue";
+import RoleSelection from '../components/RoleSelection.vue';
 
 export default {
   components: {
@@ -16,7 +16,7 @@ export default {
 
 <template>
   <div>
-    <img alt="Vue logo" src="../../assets/logo.png" />
+    <img alt="Vue logo" src="../../src/assets/logo.png" />
     <WelcomeMessage msg="Welcome to Dungeon and Dragons" />
     
     <role-selection></role-selection>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="button button_plus" @click="pointsU">ok</button>
+
 
     <circle-slider
       v-model="pointsValue"
@@ -16,7 +16,8 @@
     <!-- @touchmove="$refs.input.blur()" - hide keyboard on touchmove at mobile devices -->
 
     <input ref="input" type="number" v-model.number="pointsValue" />
-    <!-- <button class="button button_minus" @click="btnMinus">-</button> -->
+    <button class="button button_plus" @click="pointsU">ok</button>
+
   </div>
 </template>
 
@@ -33,15 +34,15 @@ export default {
       pointsValue: 0,
     };
   },
-  mounted () {
-    if (this.pointsName == 'healthPoints'){
+
+  mounted() {
+    if (this.pointsName == "healthPoints") {
       this.pointsValue = this.user.healthPoints;
-    } else if (this.pointsName == 'armorPoints'){
+    } else if (this.pointsName == "armorPoints") {
       this.pointsValue = this.user.armorPoints;
     }
-    
-  },
-
+  }, 
+  
   methods: {
     pointsU() {
       const payload = {
@@ -49,24 +50,25 @@ export default {
         [this.pointsName]: this.pointsValue,
       };
       this.$emit("pointsU", payload);
-    },
+    }, 
   },
-};
+}; 
+  
 </script>
 
-<style scoped>
+<style scoped> 
+
 button {
-  width: auto;
-  height: auto;
+  margin-left: 5px;
   color: aliceblue;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .button {
   position: relative;
   border: none;
   color: #eeeeee;
-  padding: 20px;
+  padding: 3px;
   width: 60px;
   text-align: center;
   transition-duration: 0.4s;
@@ -77,13 +79,6 @@ button {
 
 .button_plus {
   background-color: #4caf50;
-}
-.button_minus {
-  background-color: #af4c4c;
-}
-
-.button_minus:after {
-  background: #f50404;
 }
 .button_plus:after {
   background: #04f538;
